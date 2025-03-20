@@ -27,6 +27,7 @@ public class Kontener {
         if (towar <= _maxMasa-_masa)
         {
             _masa = _masa+towar;
+            Console.WriteLine($"Kontener {_nr} został zapełniony");
         }
         else
         {

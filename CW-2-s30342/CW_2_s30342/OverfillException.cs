@@ -4,6 +4,6 @@ public class OverfillException : Exception
     {
         public OverfillException(string wiadomosc)
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException(wiadomosc);
         }
     }

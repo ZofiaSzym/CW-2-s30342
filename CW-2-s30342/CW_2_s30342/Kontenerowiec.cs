@@ -6,7 +6,13 @@ public class Kontenerowiec
     private int _wezly;
     private int _maxKonten;
     private int _maxWaga;
-    private int _liczba = 0;
+
+    public Kontenerowiec(int wezly, int maxKonten, int maxWaga)
+    {
+        _wezly = wezly;
+        _maxKonten = maxKonten;
+        _maxWaga = maxWaga;
+    }
 
     public List<Kontener> List => _list;
 
@@ -15,46 +21,35 @@ public class Kontenerowiec
     public int MaxKonten => _maxKonten;
 
     //tworzy kontener i oddaje go w return
-    public Kontener StworzKontener(string typ, double wysokosc, double wagaWlasna, double glebokosc, double maxMasa) {
+    public static Kontener StworzKontener(string typ, double wysokosc, double wagaWlasna, double glebokosc, double maxMasa) {
         bool zrobiony = false;
         Kontener k = null;
         double wagaTeraz =0;
-        for (int i = 0; i < _list.Count; i++)
-        {
-            wagaTeraz = wagaTeraz + _list[i].getWagaCala();
-        }
-        if (_list.Count < _maxKonten &&  wagaWlasna+wagaTeraz < _maxWaga )
-        {
+        
             switch (typ)
             {
                 case "Plyn":
-                    k = new PlynKontener(wysokosc, wagaWlasna, _liczba.ToString(), glebokosc, maxMasa);
+                    k = new PlynKontener(wysokosc, wagaWlasna, Globals._liczba.ToString(), glebokosc, maxMasa);
                     break;
                 case "Gaz":
-                    Console.WriteLine("Podaj cisnienie, prosze!");
-                    Double cisnienie = Convert.ToDouble(Console.ReadLine());
-                    k =new GazKontener(wysokosc, wagaWlasna, _liczba.ToString(), glebokosc, maxMasa, cisnienie);
+                    k =new GazKontener(wysokosc, wagaWlasna, Globals._liczba.ToString(), glebokosc, maxMasa);
                     break;
                 case "Chlod":
-                    Console.WriteLine("w jakiej temperaturze?");
+                    Console.WriteLine("w jakiej temperaturze chcesz stworzyć kontener Chłodzący?");
                     double temperatura = Convert.ToDouble(Console.ReadLine());
-                    k = new ChlodKontener(wysokosc, wagaWlasna, _liczba.ToString(), glebokosc, maxMasa, temperatura);
+                    k = new ChlodKontener(wysokosc, wagaWlasna, Globals._liczba.ToString(), glebokosc, maxMasa, temperatura);
                     break;
                 default:
                     throw new Exception("Nie mozna stworzyc takiego kontenera");
             }
 
-            
-                _liczba++;
-            
-
-        }
+            Globals._liczba++;
 
         return k;
     }
 
     //uzupełnia zawartość kontenera
-    public void ZaladujKontener(Kontener k, Double towar)
+    public static void ZaladujKontener(Kontener k, Double towar)
     {
         k.zapelnij(towar);
     }
@@ -193,6 +188,7 @@ public class Kontenerowiec
         return $"""
                 Kontenerowiec z {_list.Count} Kontenerami, o prędkości {_wezly}węzłów,
                  o maksymalnej ilości kontenerów {_maxKonten} o wadze maksymalnej {_maxWaga}kg.
+                 
                   {reply} 
                 """;
     }

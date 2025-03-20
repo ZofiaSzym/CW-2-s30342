@@ -18,11 +18,11 @@ public class PlynKontener : Kontener, IHazardNotifier
         string odp;
         do
         {
-            Console.WriteLine("Czy to niebezpieczny towar? napisz tak/nie");
+            Console.WriteLine($"Uzupełnianie kontenera {_nr} : Czy to niebezpieczny towar? napisz tak/nie");
             odp = Console.ReadLine();
-        } while (odp != "tak" || odp != "nie");
+        } while (!odp.Equals("tak") && !odp.Equals("nie"));
 
-        if (odp == "nie")
+        if (odp.Equals("nie"))
         { 
             if (towar > _maxMasa * 0.9) {
                 this.Notify();

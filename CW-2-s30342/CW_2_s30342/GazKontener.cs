@@ -5,10 +5,10 @@ public class GazKontener : Kontener, IHazardNotifier
     private double _cisnienie;
 
 
-    public GazKontener(double wysokosc, double wagaWlasna, string nr, double glebokosc, double maxMasa, double cisnienie) : base(wysokosc, wagaWlasna, nr, glebokosc, maxMasa)
+    public GazKontener(double wysokosc, double wagaWlasna, string nr, double glebokosc, double maxMasa) : base(wysokosc, wagaWlasna, nr, glebokosc, maxMasa)
     {
         base._nr = $"KON-G-{nr}";
-        this._cisnienie = cisnienie;
+        this._cisnienie = 0;
     }
 
     public void Notify()

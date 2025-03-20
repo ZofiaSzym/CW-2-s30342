@@ -13,14 +13,14 @@ public class ChlodKontener : Kontener
         _temperatura = temperatura;
 
         _proTotemp = new Dictionary<String, Double> {
-            { "Bananas", 13.3 }, { "Chocolate", 18 }, { "Fish", 2 }, { "Meat", -15 }, { "Ice Cream", -18 },
+            { "Bananas", 13.3 }, { "Chocolate", 18 }, { "Fish", 2 }, { "Meat", -15 }, { "Ice cream", -18 },
             { "Frozen pizza", -30 }, { "Cheese", 7.2 }, { "Sausages", 5 }, { "Butter", 20.5 }, { "Eggs", 19 }
         };
     }
 
     public override void zapelnij(double towar)
     {
-        Console.WriteLine("Jaki towar chcesz dołożyć?`");
+        Console.WriteLine($"Kontener {_nr}: Jaki towar chcesz dołożyć?`");
         string nowyProdukt = Console.ReadLine();
         if (_rodzajProduktu == nowyProdukt) {
             base.zapelnij(towar);
