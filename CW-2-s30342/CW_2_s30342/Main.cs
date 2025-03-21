@@ -28,7 +28,7 @@ public class main
 
        Kontenerowiec inny = new Kontenerowiec(5, 2, 3400);
        kontenerowiec.PrzeniesKontener("KON-G-1", inny);
-       kontenerowiec.rozladujKontener("KON-L-2");
+       Kontenerowiec.rozladujKontener(k2);
        kontenerowiec.ZamianaKontenerow("KON-G-4", k6);
        
        Console.WriteLine(kontenerowiec);

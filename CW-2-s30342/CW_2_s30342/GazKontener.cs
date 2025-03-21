@@ -21,14 +21,14 @@ public class GazKontener : Kontener, IHazardNotifier
         double pozostaw = _masa * 0.05;
         base.oproznij();
         _masa += pozostaw;
-        _cisnienie = (_masa * 10) / (_wysokosc * _glebokosc);
+        _cisnienie = (_masa * 10) / (_wysokosc * _glebokosc*_glebokosc);
         
     }
 
     public override void zapelnij(double towar)
     {
         base.zapelnij(towar);
-        _cisnienie = (_masa * 10) / (_wysokosc * _glebokosc);
+        _cisnienie = (_masa * 10) / (_wysokosc * _glebokosc*_glebokosc);
         Notify();
     }
     

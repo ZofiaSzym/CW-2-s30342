@@ -20,7 +20,7 @@ public class ChlodKontener : Kontener
 
     public override void zapelnij(double towar)
     {
-        Console.WriteLine($"Kontener {_nr}: Jaki towar chcesz dołożyć?`");
+        Console.WriteLine($"Kontener {_nr}: Jaki towar chcesz dołożyć? Temperatura to: {_temperatura}");
         string nowyProdukt = Console.ReadLine();
         if (_rodzajProduktu == nowyProdukt) {
             base.zapelnij(towar);

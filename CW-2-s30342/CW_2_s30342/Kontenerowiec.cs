@@ -107,15 +107,11 @@ public class Kontenerowiec
     }
     
 //usuwa zawartość kontenera
-    public void rozladujKontener(string nr)
+    public static void rozladujKontener(Kontener k)
     {
-        for (int i = 0; i < _list.Count; i++) {
-            if (nr == _list[i].Nr) {
-                _list[i].oproznij();
-                Console.WriteLine($"Rozładowano kontener {nr}");
-                break;
-            }
-        }
+        k.oproznij();
+                Console.WriteLine($"Rozładowano kontener {k.Nr}");
+           
     }
     
     //zamiana kontenerów
